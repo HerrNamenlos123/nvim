@@ -6,14 +6,22 @@ This can be used as an example custom config for NvChad. Do check the https://gi
 
 ### Install NvChad
 
-Windows/Linux:   
+Windows:   
+```
+git clone https://github.com/NvChad/NvChad $env:localappdata/nvim --depth 1 ; nvim
+```
+Linux:   
 ```
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 ```
 
 ### Install my config
 
-Windows/Linux:  
+Windows:   
+```
+git clone https://github.com/HerrNamenlos123/nvim $env:localappdata/nvim/lua/custom
+```
+Linux:  
 ```
 git clone https://github.com/HerrNamenlos123/nvim ~/.config/nvim/lua/custom
 ```
