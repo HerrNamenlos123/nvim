@@ -8,7 +8,7 @@ This can be used as an example custom config for NvChad. Do check the https://gi
 
 Windows:   
 ```
-git clone https://github.com/NvChad/NvChad $env:localappdata/nvim --depth 1 ; nvim
+git clone https://github.com/NvChad/NvChad %localappdata%/nvim --depth 1 ; nvim
 ```
 Linux:   
 ```
@@ -19,7 +19,7 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 
 Windows:   
 ```
-git clone https://github.com/HerrNamenlos123/nvim $env:localappdata/nvim/lua/custom
+git clone https://github.com/HerrNamenlos123/nvim %localappdata%/nvim/lua/custom
 ```
 Linux:  
 ```
