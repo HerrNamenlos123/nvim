@@ -6,6 +6,8 @@ M.general = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<C-j>"] = { "]mzz", "Jump to next scope"},
     ["<C-k>"] = { "[mzz", "Jump to previous scope" },
+    ["k"] = { "kzz", "Move one line up and keep cursor centered" },
+    ["j"] = { "jzz", "Move one line down and keep cursor centered" },
     ["<leader>j"] = { "]]zz", "Jump to next function"},
     ["<leader>k"] = { "[[zz", "Jump to previous function" },
     ["<A-j>"] = { ":m +1<CR>", "Move lines down by one" },
