@@ -15,6 +15,7 @@ M.general = {
     ["<A-k>"] = { ":m -2<CR>", "Move lines up by one" },
     ["<leader>pf"] = { ":Telescope find_files<CR>", "Find in all files" },
     ["<leader>af"] = { function() vim.lsp.buf.code_action() end, "LSP Auto-Fix" },
+    ["<leader>aa"] = { "gg0v<S-G>$", "Select entire file" },
   },
   v = {
     [">"] = { ">gv", "indent" },
