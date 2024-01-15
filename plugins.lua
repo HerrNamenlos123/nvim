@@ -50,7 +50,17 @@ local plugins = {
         "NStefan002/speedtyper.nvim",
         cmd = "Speedtyper",
         config = function()
-            require("speedtyper").setup({})
+            require("speedtyper").setup {}
+        end,
+    },
+    {
+        "Exafunction/codeium.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "hrsh7th/nvim-cmp",
+        },
+        config = function()
+            require("codeium").setup {}
         end,
     },
 
