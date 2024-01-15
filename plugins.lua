@@ -62,6 +62,11 @@ local plugins = {
         },
         config = function()
             require("codeium").setup {}
+            require("cmp").setup {
+                sources = {
+                    { name = "codeium" }
+                }
+            }
         end,
     },
 

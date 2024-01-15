@@ -27,12 +27,4 @@ vim.api.nvim_exec([[
   highlight ColorColumn guibg=#555555
 ]], false)
 
-require("cmp").setup({
-    -- ...
-    sources = {
-        -- ...
-        { name = "codeium" }
-    }
-})
-
 return M
