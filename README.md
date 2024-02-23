@@ -15,14 +15,6 @@ Linux:
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 ```
 
-### Install Starship
-
-Linux:
-```
-curl -sS https://starship.rs/install.sh | sudo sh
-echo 'eval "$(starship init bash)"' >> ~/.bashrc
-```
-
 ### Install my config
 
 Windows:   
@@ -32,4 +24,12 @@ git clone https://github.com/HerrNamenlos123/nvim %localappdata%/nvim/lua/custom
 Linux:  
 ```
 git clone https://github.com/HerrNamenlos123/nvim ~/.config/nvim/lua/custom
+```
+
+### Install Starship
+
+Linux:
+```
+curl -sS https://starship.rs/install.sh | sudo sh
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
 ```
