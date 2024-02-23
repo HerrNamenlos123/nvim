@@ -8,6 +8,7 @@ This can be used as an example custom config for NvChad. Do check the https://gi
 
 Linux:
 ```
+curl -sS https://starship.rs/install.sh | sudo sh
 echo 'eval "$(starship init bash)"' >> ~/.bashrc
 ```
 
