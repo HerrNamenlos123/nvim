@@ -4,6 +4,13 @@ This can be used as an example custom config for NvChad. Do check the https://gi
 
 ## Installation
 
+### Install Starship
+
+Linux:
+```
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
+```
+
 ### Install NvChad
 
 Windows:   
