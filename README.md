@@ -4,14 +4,6 @@ This can be used as an example custom config for NvChad. Do check the https://gi
 
 ## Installation
 
-### Install Starship
-
-Linux:
-```
-curl -sS https://starship.rs/install.sh | sudo sh
-echo 'eval "$(starship init bash)"' >> ~/.bashrc
-```
-
 ### Install NvChad
 
 Windows:   
@@ -21,6 +13,14 @@ git clone https://github.com/NvChad/NvChad %localappdata%/nvim --depth 1 ; nvim
 Linux:   
 ```
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+```
+
+### Install Starship
+
+Linux:
+```
+curl -sS https://starship.rs/install.sh | sudo sh
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
 ```
 
 ### Install my config
