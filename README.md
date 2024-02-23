@@ -33,6 +33,7 @@ Linux:
 curl -sS https://starship.rs/install.sh | sudo sh
 echo 'eval "$(starship init bash)"' >> ~/.bashrc
 cp ~/.config/nvim/lua/custom/starship.toml ~/.config/starship.toml
+echo 'source ~/.config/nvim/lua/custom/aliases.sh' >> ~/.bashrc
 ```
 
 Don't forget to change the starship logo!!!
