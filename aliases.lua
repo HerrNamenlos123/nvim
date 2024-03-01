@@ -11,4 +11,5 @@ io.popen("doskey gdi=cmd /c \"cd C:/Users/zachs/Projects/tugraz/GDI/gdi2023 && n
 io.popen("doskey battery=cmd /c \"cd C:/Users/zachs/Projects/battery && nvim\"")
 io.popen("doskey bcalc=cmd /c \"cd C:/Users/zachs/Projects/b-calc && nvim\"")
 io.popen("doskey fuzzy=cmd /c \"cd C:/Users/zachs/Projects/fuzzy-disco && nvim\"")
-io.popen("doskey tracksy=wsl -d Ubuntu bash -i -c \"cd ~/Tracksy_BE && nvim\"")
+io.popen("doskey tracksy=wsl bash -i -c \"cd ~/Tracksy_BE && nvim\"")
+io.popen("doskey tugraz=cd C:/Users/zachs/Projects/tugraz")
