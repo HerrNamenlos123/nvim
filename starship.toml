@@ -8,6 +8,7 @@ command_timeout = 3000
 format = "[  ](14)$directory$all$character"       # Format for Windows
 #format = "[  ](208)$directory$all$character"     # Format for Ubuntu
 #format = "[  ](1)$directory$all$character"       # Format for Debian
+#format = "[  ](1)$directory$all$character"       # Format for TU Graz
 
 # Change the default prompt characters
 [character]
