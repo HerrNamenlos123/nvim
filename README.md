@@ -4,6 +4,15 @@ This can be used as an example custom config for NvChad. Do check the https://gi
 
 ## Installation
 
+### Install Neovim
+
+Linux:
+```
+sudo mkdir -p /opt/bin/ && sudo wget https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -P /opt/bin/
+sudo chmod +x /opt/bin/nvim.appimage
+sudo ln -s /opt/bin/nvim.appimage /usr/bin/nvim
+```
+
 ### Install NvChad
 
 Windows:   
