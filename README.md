@@ -55,4 +55,7 @@ cp ~/.config/nvim/lua/custom/starship.toml ~/.config/starship.toml
 echo 'source ~/.config/nvim/lua/custom/aliases.sh' >> ~/.bashrc
 ```
 
-Don't forget to change the starship logo!!!
+And change the starship logo:
+```
+nvim ~/.config/starship.toml
+```
