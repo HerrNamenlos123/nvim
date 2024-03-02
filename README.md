@@ -49,11 +49,11 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 
 Windows:   
 ```
-git clone https://github.com/HerrNamenlos123/nvim %localappdata%/nvim/lua/custom
+git clone https://github.com/HerrNamenlos123/nvim %localappdata%/nvim/lua/custom && nvim
 ```
 Linux:  
 ```
-rm -rf ~/.config/nvim/lua/custom && git clone https://github.com/HerrNamenlos123/nvim ~/.config/nvim/lua/custom
+rm -rf ~/.config/nvim/lua/custom && git clone https://github.com/HerrNamenlos123/nvim ~/.config/nvim/lua/custom && nvim
 ```
 
 ### Install Starship
