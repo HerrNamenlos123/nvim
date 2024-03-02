@@ -8,6 +8,9 @@ This can be used as an example custom config for NvChad. Do check the https://gi
 
 Linux:
 ```
+sudo apt update && sudo apt install -y curl wget python3 python3-venv
+```
+```
 sudo mkdir -p /opt/bin/ && sudo wget https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -P /opt/bin/
 ```
 ```
