@@ -38,11 +38,11 @@ And set the font to `JetBrainsMono Nerd Font` in Terminal Preferences!
 
 Windows:   
 ```
-git clone https://github.com/NvChad/NvChad %localappdata%/nvim --depth 1 ; nvim
+git clone https://github.com/NvChad/NvChad %localappdata%/nvim --depth 1
 ```
 Linux:   
 ```
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 ```
 
 ### Install my config
