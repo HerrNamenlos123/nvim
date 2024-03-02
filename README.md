@@ -42,7 +42,7 @@ git clone https://github.com/HerrNamenlos123/nvim %localappdata%/nvim/lua/custom
 ```
 Linux:  
 ```
-git clone https://github.com/HerrNamenlos123/nvim ~/.config/nvim/lua/custom
+rm -rf ~/.config/nvim/lua/custom && git clone https://github.com/HerrNamenlos123/nvim ~/.config/nvim/lua/custom
 ```
 
 ### Install Starship
