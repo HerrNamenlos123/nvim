@@ -13,6 +13,16 @@ sudo chmod +x /opt/bin/nvim.appimage
 sudo ln -s /opt/bin/nvim.appimage /usr/bin/nvim
 ```
 
+### Install Nerd Font
+
+```
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
+unzip -d fonts JetBrainsMono.zip
+open fonts/JetBrainsMonoNerdFont-Medium.ttf
+rm -rf JetBrainsMono.zip fonts/
+```
+And set the font to `JetBrainsMono Nerd Font` in Terminal Preferences!
+
 ### Install NvChad
 
 Windows:   
