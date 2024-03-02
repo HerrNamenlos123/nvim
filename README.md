@@ -34,22 +34,6 @@ rm -rf JetBrainsMono.zip fonts/
 
 And set the font to `JetBrainsMono Nerd Font` in Terminal Preferences!
 
-### Install Starship
-
-Linux:
-```
-curl -sS https://starship.rs/install.sh | sudo sh
-```
-```
-echo 'eval "$(starship init bash)"' >> ~/.bashrc
-```
-```
-cp ~/.config/nvim/lua/custom/starship.toml ~/.config/starship.toml
-```
-```
-echo 'source ~/.config/nvim/lua/custom/aliases.sh' >> ~/.bashrc
-```
-
 ### Install NvChad
 
 Windows:   
@@ -70,6 +54,22 @@ git clone https://github.com/HerrNamenlos123/nvim %localappdata%/nvim/lua/custom
 Linux:  
 ```
 rm -rf ~/.config/nvim/lua/custom && git clone https://github.com/HerrNamenlos123/nvim ~/.config/nvim/lua/custom
+```
+
+### Install Starship
+
+Linux:
+```
+curl -sS https://starship.rs/install.sh | sudo sh
+```
+```
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
+```
+```
+cp ~/.config/nvim/lua/custom/starship.toml ~/.config/starship.toml
+```
+```
+echo 'source ~/.config/nvim/lua/custom/aliases.sh' >> ~/.bashrc
 ```
 
 And change the starship logo:
