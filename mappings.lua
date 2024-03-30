@@ -16,7 +16,6 @@ M.general = {
     ["<leader>pf"] = { ":Telescope find_files<CR>", "Find in all files" },
     ["<leader>af"] = { function() vim.lsp.buf.code_action() end, "LSP Auto-Fix" },
     ["<leader>aa"] = { "gg0v<S-G>$", "Select entire file" },
-    ["<leader>rn"] = { function() vim.lsp.buf.rename() end, "LSP Rename Symbol" },
   },
   v = {
     [">"] = { ">gv", "indent" },
