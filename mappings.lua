@@ -16,7 +16,7 @@ M.general = {
     ["<leader>pf"] = { ":Telescope find_files<CR>", "Find files" },
     ["<leader>lg"] = { ":Telescope live_grep<CR>", "Find text across all files" },
     ["<leader>aa"] = { "gg0v<S-G>$", "Select entire file" },
-    ["<leader>lf"] = { ":%s/\\r//g", "Change CRLF to LF for the entire file" },
+    ["<leader>lf"] = { ":%s/\\r//g<CR>", "Change CRLF to LF for the entire file" },
   },
   v = {
     [">"] = { ">gv", "indent" },
