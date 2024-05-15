@@ -29,6 +29,48 @@ M.general = {
   },
 }
 
+M.dap = {
+  plugin = true,
+  n = {
+    ["<leader>dr"] = {
+      function()
+        require("dap").continue()
+      end,
+      "Debugger: Resume",
+    },
+    ["<leader>dn"] = {
+      function()
+        require("dap").step_over()
+      end,
+      "Debugger: Step over (Next instruction)",
+    },
+    ["<leader>di"] = {
+      function()
+        require("dap").step_into()
+      end,
+      "Debugger: Step in",
+    },
+    ["<leader>do"] = {
+      function()
+        require("dap").step_out()
+      end,
+      "Debugger: Step out",
+    },
+    ["<leader>db"] = {
+      function()
+        require("dap").toggle_breakpoint()
+      end,
+      "Debugger: Toggle Breakpoint",
+    },
+    -- ["<leader>dr"] = {
+    --     function()
+    --         require("dap").repl.toggle()
+    --     end,
+    --     "Debugger: Toggle Repl Debugger",
+    -- },
+  },
+}
+
 -- more keybinds!
 
 return M
