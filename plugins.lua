@@ -26,6 +26,11 @@ local plugins = {
     {
         "williamboman/mason.nvim",
         opts = overrides.mason,
+        ensure_installed = {
+            "clangd",
+            "clang-format",
+            "codelldb",
+        },
     },
 
     {
@@ -105,7 +110,69 @@ local plugins = {
             }
         end,
     },
+    {
+        "rcarriga/nvim-dap-ui",
+        event = "VeryLazy",
+        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+        config = function()
+            local dap = require "dap"
+            local dapui = require "dapui"
+            dapui.setup()
 
+            dap.listeners.after.event_initialized["dapui_config"] = function()
+                dapui.open()
+            end
+            dap.listeners.before.event_terminated["dapui_config"] = function()
+                dapui.close()
+            end
+            dap.listeners.before.event_exited["dapui_config"] = function()
+                dapui.close()
+            end
+
+            -- dap.adapters.lldb = {
+            --     type = "executable",
+            --     command = "C:\\Program Files\\LLVM\\bin\\lldb.exe", -- adjust as needed, must be absolute path
+            --     name = "lldb",
+            -- }
+            --
+            -- local lldb = {
+            --     name = "Launch lldb",
+            --     type = "lldb", -- matches the adapter
+            --     request = "launch", -- could also attach to a currently running process
+            --     program = function()
+            --         return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+            --     end,
+            --     cwd = "${workspaceFolder}",
+            --     stopOnEntry = false,
+            --     args = {},
+            --     runInTerminal = false,
+            -- }
+            --
+            -- require("dap").configurations.cpp = {
+            --     lldb, -- different debuggers or more configurations can be used here
+            -- }
+        end,
+    },
+    {
+        "jay-babu/mason-nvim-dap.nvim",
+        lazy = false,
+        dependencies = {
+            "williamboman/mason.nvim",
+            "mfussenegger/nvim-dap",
+        },
+        opts = {
+            handlers = {},
+            ensure_installed = {
+                "codelldb",
+            },
+        },
+    },
+    {
+        "mfussenegger/nvim-dap",
+        config = function()
+            require("core.utils").load_mappings("dap")
+        end
+    },
     -- To make a plugin not be loaded
     -- {
     --   "NvChad/nvim-colorizer.lua",
