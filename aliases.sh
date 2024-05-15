@@ -1,4 +1,6 @@
 alias aliases="nvim ~/.config/nvim/lua/custom/aliases.sh"
+alias v="nvim"
+alias f="fuck"
 alias explorer="explorer.exe ."
 alias nvconfig="bash -i -c \"cd ~/.config/nvim/lua/custom && nvim\""
 alias docker-ubuntu-20.04="docker run -it ubuntu:20.04"
