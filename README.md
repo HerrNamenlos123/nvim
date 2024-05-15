@@ -45,7 +45,7 @@ git clone https://github.com/NvChad/NvChad %localappdata%/nvim --depth 1
 ```
 Linux:   
 ```
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 --branch v2.0
 ```
 
 ### Install my config
