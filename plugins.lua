@@ -19,7 +19,7 @@ local plugins = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
-    end,     -- Override to setup mason-lspconfig
+    end, -- Override to setup mason-lspconfig
   },
 
   -- override plugin configs
@@ -37,10 +37,13 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
   },
-
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = overrides.telescope,
   },
 
   -- Install a plugin

@@ -1,5 +1,5 @@
 -- General System mappings
-io.popen "doskey v=nvim"
+io.popen "doskey v=nvim $*"
 io.popen "doskey ls=dir /B $*"
 io.popen "doskey rm=del /q $*"
 io.popen "doskey cat=more $*"
