@@ -11,8 +11,6 @@ io.popen "doskey reboot=shutdown /r -t 0"
 -- Utility
 io.popen "doskey sp=spotify_player"
 io.popen "doskey aliases=nvim %LOCALAPPDATA%/nvim/lua/custom/aliases.lua"
-
--- Tooling
 io.popen 'doskey clinkconfig=cmd /c "cd %LOCALAPPDATA%/clink && nvim"'
 io.popen "doskey inputrc=nvim %USERPROFILE%/.inputrc"
 io.popen 'doskey nvconfig=cmd /c "cd %LOCALAPPDATA%/nvim/lua/custom && nvim"'
@@ -27,7 +25,8 @@ io.popen 'doskey tracksy=wsl bash -i -c "cd ~/Tracksy_BE && nvim"'
 io.popen "doskey gs=git status"
 io.popen "doskey ga=git add ."
 io.popen "doskey gc=git commit -m $*"
-io.popen "doskey gp=git push"
+io.popen "doskey gps=git push"
+io.popen "doskey gpl=git pull"
 io.popen "doskey gd=git diff $*"
 io.popen "doskey gr=git reset"
 
