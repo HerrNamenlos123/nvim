@@ -6,6 +6,11 @@ This can be used as an example custom config for NvChad. Do check the https://gi
 
 ### Install Neovim
 
+Windows:
+```
+winget install Neovim.Neovim
+```
+
 Linux:
 ```
 sudo apt update && sudo apt install -y curl wget python3 python3-venv xclip
