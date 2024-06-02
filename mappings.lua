@@ -13,8 +13,6 @@ M.general = {
     ["<leader>k"] = { "[[zz", "Jump to previous function" },
     ["<A-j>"] = { ":m +1<CR>", "Move lines down by one" },
     ["<A-k>"] = { ":m -2<CR>", "Move lines up by one" },
-    ["<leader>pf"] = { ":Telescope find_files<CR>", "Find files" },
-    ["<leader>lg"] = { ":Telescope live_grep<CR>", "Find text across all files" },
     ["<leader>aa"] = { "gg0v<S-G>$", "Select entire file" },
     ["<leader>lf"] = { ":%s/\\r//g<CR>", "Change CRLF to LF for the entire file" },
   },
