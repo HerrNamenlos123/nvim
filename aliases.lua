@@ -28,6 +28,7 @@ io.popen "doskey gs=git status"
 io.popen "doskey ga=git add ."
 io.popen "doskey gc=git commit -m $*"
 io.popen "doskey gp=git push"
+io.popen "doskey gd=git diff $*"
 
 -- System folders navigation
 io.popen "doskey ex-home=start %USERPROFILE%"
