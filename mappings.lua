@@ -22,9 +22,6 @@ M.custom = {
   x = {
     ["<leader>p"] = { [["_dP]], "I think replace a line in visual select mode" },
   },
-  t = {
-    ["<leader><ESC>"] = { "<C-\\><C-n> ", "Exit insert mode in Terminal" },
-  },
 }
 
 M.dap = {
