@@ -46,7 +46,7 @@ And set the font to `JetBrainsMono Nerd Font` in Terminal Preferences!
 
 Windows:   
 ```
-git clone https://github.com/NvChad/NvChad %localappdata%/nvim --depth 1
+git clone https://github.com/NvChad/NvChad %localappdata%/nvim --depth 1 --branch v2.0
 ```
 Linux:   
 ```
