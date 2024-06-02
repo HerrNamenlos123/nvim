@@ -1,6 +1,12 @@
 io.popen "doskey ls=dir /B $*"
 io.popen "doskey rm=del /q $*"
+io.popen "doskey cat=more $*"
+io.popen "doskey gs=git status"
+io.popen "doskey ga=git add ."
+io.popen "doskey gc=git commit -m $*"
+io.popen "doskey gp=git push"
 io.popen "doskey v=nvim"
+io.popen "doskey sp=spotify_player"
 io.popen "doskey rmdir=rmdir /q /s $*"
 io.popen 'doskey touch=cmd.exe /c "echo. > $*"'
 io.popen "doskey tu=wsl -d Ubuntu-20.04"
