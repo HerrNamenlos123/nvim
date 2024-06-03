@@ -77,6 +77,9 @@ Add to Path:
 ```
 C:\Program Files (x86)\clink
 ```
+```
+clink autorun install
+```
 
 Linux:
 ```
