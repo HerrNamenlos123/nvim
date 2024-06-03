@@ -73,6 +73,10 @@ winget install --id Starship.Starship
 ```
 https://github.com/chrisant996/clink/releases
 ```
+Add to Path:
+```
+C:\Program Files (x86)\clink
+```
 
 Linux:
 ```
