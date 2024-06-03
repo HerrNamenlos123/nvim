@@ -69,6 +69,7 @@ rm -rf ~/.config/nvim/lua/custom && git clone https://github.com/HerrNamenlos123
 Windows:
 ```
 winget install --id Starship.Starship
+winget install clink
 ```
 
 Linux:
