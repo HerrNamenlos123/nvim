@@ -66,6 +66,11 @@ rm -rf ~/.config/nvim/lua/custom && git clone https://github.com/HerrNamenlos123
 
 ### Install Starship
 
+Windows:
+```
+winget install --id Starship.Starship
+```
+
 Linux:
 ```
 curl -sS https://starship.rs/install.sh | sudo sh
