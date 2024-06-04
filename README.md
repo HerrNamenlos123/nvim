@@ -79,6 +79,7 @@ C:\Program Files (x86)\clink
 ```
 ```
 clink autorun install -- --quiet
+echo dofile(os.getenv("LOCALAPPDATA") .. "/nvim/lua/custom/clink.lua") > "%localappdata%\clink\clink-config.lua"
 ```
 
 Linux:
