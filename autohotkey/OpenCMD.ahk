@@ -1,5 +1,5 @@
 ﻿^!t::
-Run cmd.exe /k
+Run cmd.exe /k "cd %USERPROFILE%/Projects"
 return
 
 ^!b::
