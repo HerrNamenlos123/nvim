@@ -11,16 +11,16 @@ io.popen "doskey reboot=shutdown /r -t 0"
 -- Utility
 io.popen "doskey sp=spotify_player"
 io.popen "doskey aliases=nvim %LOCALAPPDATA%/nvim/lua/custom/aliases.lua"
-io.popen 'doskey clinkconfig=cmd /c "cd %LOCALAPPDATA%/clink && v"'
+io.popen 'doskey clinkconfig=cmd /c "cd %LOCALAPPDATA%/clink && nvim"'
 io.popen "doskey inputrc=nvim %USERPROFILE%/.inputrc"
-io.popen 'doskey nvconfig=cmd /c "cd %LOCALAPPDATA%/nvim/lua/custom && v"'
+io.popen 'doskey nvconfig=cmd /c "cd %LOCALAPPDATA%/nvim/lua/custom && nvim"'
 
 -- Project Specific
-io.popen 'doskey battery=cmd /c "cd C:/Users/zachs/Projects/battery && v"'
-io.popen 'doskey bcalc=cmd /c "cd C:/Users/zachs/Projects/b-calc && v"'
-io.popen 'doskey fuzzy=cmd /c "cd C:/Users/zachs/Projects/fuzzy-disco && v"'
-io.popen 'doskey tracksy=wsl bash -i -c "cd ~/Tracksy_BE && v"'
-io.popen 'doskey toylang=wsl bash -i -c "cd ~/toylang && v"'
+io.popen 'doskey battery=cmd /c "cd C:/Users/zachs/Projects/battery && nvim"'
+io.popen 'doskey bcalc=cmd /c "cd C:/Users/zachs/Projects/b-calc && nvim"'
+io.popen 'doskey fuzzy=cmd /c "cd C:/Users/zachs/Projects/fuzzy-disco && nvim"'
+io.popen 'doskey tracksy=wsl bash -i -c "cd ~/Tracksy_BE && nvim"'
+io.popen 'doskey toylang=wsl bash -i -c "cd ~/toylang && nvim"'
 
 -- Git
 io.popen "doskey gs=git status"
