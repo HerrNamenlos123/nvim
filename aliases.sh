@@ -28,3 +28,8 @@ alias documents="cd ~/Documents"
 
 # TU Graz
 alias tug="cd ~/Projects/tugraz"
+
+EDITOR="nvim"
+se() {
+    sudoedit "$(readlink -f "$1")"
+}
