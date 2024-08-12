@@ -33,3 +33,5 @@ EDITOR="nvim"
 se() {
     sudoedit "$(readlink -f "$1")"
 }
+
+alias r="./run"
