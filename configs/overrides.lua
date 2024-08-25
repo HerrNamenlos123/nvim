@@ -63,18 +63,20 @@ M.nvimtree = {
 }
 
 M.telescope = {
-  defaults = {
-    file_ignore_patterns = { 
-      "%.exe",
-      "%.png",
-      "%.ico",
-      "%.jpg",
-      "%.jpeg",
-      "%.ttf",
-      "%.bmp",
-      "%.gif",
+    defaults = {
+        file_ignore_patterns = {
+            "%.exe",
+            "%.png",
+            "%.ico",
+            "%.jpg",
+            "%.jpeg",
+            "%.ttf",
+            "%.bmp",
+            "%.gif",
+            "build/%",
+            "build-ms/%",
+        }
     }
-  }
 }
 
 return M

@@ -1,0 +1,14 @@
+BasedOnStyle: WebKit
+IndentWidth: 4
+ColumnLimit: 89
+
+BreakBeforeBraces: Stroustrup
+    
+IndentCaseLabels: false
+InsertBraces: true
+
+BinPackArguments: false
+BinPackParameters: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AlignAfterOpenBracket: true
+AllowShortFunctionsOnASingleLine: false
