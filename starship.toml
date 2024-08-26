@@ -9,12 +9,12 @@ command_timeout = 3000
 #format = "[  ](208)$directory$all$character"     # Format for Ubuntu
 #format = "[  ](1)$directory$all$character"       # Format for Debian
 #format = "[  ](1)$directory$all$character"       # Format for TU Graz
-format = "[  ](33)$directory$all$character"      # Format for TU Graz
+format = " [  ](33)$directory$all$character"      # Format for TU Graz
 
 # Change the default prompt characters
 [character]
-success_symbol = "[󰁔](bold green)"
-error_symbol = "[󰁔](bold red)"
+success_symbol = " [󰁔](bold green)"
+error_symbol = " [󰁔](bold red)"
 
 # Shows an icon that should be included by zshrc script based on the distribution or os
 [env_var.STARSHIP_DISTRO]
