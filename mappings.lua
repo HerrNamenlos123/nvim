@@ -18,6 +18,7 @@ M.custom = {
         ["<C-p>"] = { "<cmd> Telescope find_files <CR>", "Open file" },
         ["<C-c>"] = { '"+y', "Copy to clipboard" },
         ["<C-v>"] = { '"+p', "Paste from clipboard" },
+        ["<C-w>"] = { ":tabclose<CR>", "Close tab" },
     },
     v = {
         [">"] = { ">gv", "indent" },
