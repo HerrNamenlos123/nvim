@@ -20,6 +20,10 @@ alias gps="git push"
 alias gpl="git pull"
 alias gd="git diff"
 alias gr="git reset"
+alias gst="git stash"
+alias gsa="git stash apply"
+alias gb="git checkout HEAD~1"
+alias gf="git switch main"
 
 # System folders navigation
 alias home="cd ~"
