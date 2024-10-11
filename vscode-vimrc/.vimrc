@@ -34,4 +34,4 @@ nnoremap K 15k
 " nnoremap s <Plug>(easymotion-bd-f)
 nnoremap s <leader><leader>s
 
-nmap L :action LspShowHover<CR>
+set clipboard=unnamedplus
