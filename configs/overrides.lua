@@ -74,9 +74,21 @@ M.telescope = {
             "%.bmp",
             "%.gif",
             "build/%",
+            ".build/%",
             "build-ms/%",
-        }
-    }
+            "cmake-build/%",
+            "%.vsix",
+        },
+    },
+}
+
+local parsers = require "nvim-treesitter.parsers"
+parsers.get_parser_configs().toy = {
+    install_info = {
+        url = "~/Projects/toylang/nvim-treesitter/toy", -- Path to your custom parser
+        files = { "src/parser.c" },
+    },
+    filetype = "toy",
 }
 
 return M

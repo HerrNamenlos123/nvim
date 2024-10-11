@@ -5,8 +5,8 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-    theme = "onedark",
-    theme_toggle = { "onedark", "one_light" },
+    theme = "tokyodark",
+    theme_toggle = { "tokyodark", "one_light" },
 
     hl_override = highlights.override,
     hl_add = highlights.add,
@@ -24,9 +24,12 @@ vim.o.expandtab = true
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.api.nvim_set_option_value("colorcolumn", "90", {})
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+    [[
   highlight ColorColumn guibg=#555555
-]], false)
+]],
+    false
+)
 
 -- local cmp_nvim_lsp = require "cmp_nvim_lsp"
 

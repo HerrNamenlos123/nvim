@@ -18,7 +18,8 @@ M.custom = {
         ["<C-p>"] = { "<cmd> Telescope find_files <CR>", "Open file" },
         ["<C-c>"] = { '"+y', "Copy to clipboard" },
         ["<C-v>"] = { '"+p', "Paste from clipboard" },
-        ["<C-w>"] = { ":tabclose<CR>", "Close tab" },
+        ["<leader>rr"] = { ":source $MYVIMRC<CR>", "Paste from clipboard" },
+        -- ["<C-w>"] = { ":bd<CR>", "Close tab" },
     },
     v = {
         [">"] = { ">gv", "indent" },
@@ -27,6 +28,9 @@ M.custom = {
     },
     x = {
         ["<leader>p"] = { [["_dP]], "I think replace a line in visual select mode" },
+    },
+    i = {
+        ["<C-h>"] = { "<C-w>", "Delete word before cursor" },
     },
 }
 

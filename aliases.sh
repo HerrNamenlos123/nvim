@@ -39,3 +39,4 @@ se() {
 }
 
 alias r="./run"
+alias open="xdg-open"
