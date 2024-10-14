@@ -25,3 +25,4 @@ nnoremap K 15k
 nnoremap s <leader><leader>s
 
 set clipboard=unnamedplus
+nnoremap gcc :action CommentByLineComment<CR>
