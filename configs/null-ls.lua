@@ -6,8 +6,8 @@ local b = null_ls.builtins
 local sources = {
 
     -- webdev stuff
-    -- b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
-    -- b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
+    b.formatting.deno_fmt,                                                  -- choosed deno for ts/js files cuz its very fast!
+    b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
 
     -- Lua
     b.formatting.stylua,
@@ -20,13 +20,13 @@ null_ls.setup {
     debug = true,
     sources = sources,
     on_attach = function(client, bufnr)
-        local filetype = vim.bo[bufnr].filetype
-        if filetype == "vue" or filetype == "typescript" or filetype == "typescriptreact" then
-            client.server_capabilities.documentFormattingProvider = false
-            client.server_capabilities.hoverProvider = false
-            client.server_capabilities.definitionProvider = false
-            -- Disable other capabilities as needed
-        end
+        -- local filetype = vim.bo[bufnr].filetype
+        -- if filetype == "vue" or filetype == "typescript" or filetype == "typescriptreact" then
+        --     client.server_capabilities.documentFormattingProvider = false
+        --     client.server_capabilities.hoverProvider = false
+        --     client.server_capabilities.definitionProvider = false
+        --     -- Disable other capabilities as needed
+        -- end
         if client.supports_method "textDocument/formatting" then
             vim.api.nvim_clear_autocmds {
                 group = augroup,

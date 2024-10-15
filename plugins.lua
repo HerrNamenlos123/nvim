@@ -46,11 +46,6 @@ local plugins = {
         "nvim-telescope/telescope.nvim",
         opts = overrides.telescope,
     },
-    {
-        "neoclide/coc.nvim",
-        branch = "release",
-        event = "InsertEnter",
-    },
 
     -- Install a plugin
     {
@@ -76,16 +71,16 @@ local plugins = {
         },
         config = function()
             require("codeium").setup {}
-            -- require("cmp").setup {
-            --     sources = {
-            --         { name = "codeium" },
-            --         { name = "nvim_lsp" },
-            --         { name = "luasnip" },
-            --         { name = "buffer" },
-            --         { name = "nvim_lua" },
-            --         { name = "path" },
-            --     },
-            -- }
+            require("cmp").setup {
+                sources = {
+                    { name = "codeium" },
+                    { name = "nvim_lsp" },
+                    { name = "luasnip" },
+                    { name = "buffer" },
+                    { name = "nvim_lua" },
+                    { name = "path" },
+                },
+            }
         end,
     },
     {

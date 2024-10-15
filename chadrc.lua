@@ -30,14 +30,14 @@ vim.api.nvim_exec(
 ]],
     false
 )
-vim.api.nvim_set_keymap(
-    "i",
-    "<CR>",
-    'coc#pum#visible() ? coc#pum#confirm() : "<CR>"',
-    { noremap = true, expr = true, silent = true }
-)
-vim.api.nvim_set_keymap("i", "<C-Space>", "coc#refresh()", { noremap = true, silent = true, expr = true })
-vim.api.nvim_set_keymap("n", "L", "<Plug>(coc-hover)", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap(
+--     "i",
+--     "<CR>",
+--     'coc#pum#visible() ? coc#pum#confirm() : "<CR>"',
+--     { noremap = true, expr = true, silent = true }
+-- )
+-- vim.api.nvim_set_keymap("i", "<C-Space>", "coc#refresh()", { noremap = true, silent = true, expr = true })
+-- vim.api.nvim_set_keymap("n", "L", "<Plug>(coc-hover)", { noremap = true, silent = true })
 
 -- local cmp_nvim_lsp = require "cmp_nvim_lsp"
 
