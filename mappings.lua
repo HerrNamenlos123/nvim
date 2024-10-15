@@ -19,6 +19,9 @@ M.custom = {
         ["<C-c>"] = { '"+y', "Copy to clipboard" },
         ["<C-v>"] = { '"+p', "Paste from clipboard" },
         ["<leader>rr"] = { ":source $MYVIMRC<CR>", "Paste from clipboard" },
+        ["L"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show LSP Hover" },
+        ["J"] = { "15jzz", "Jump down 15 lines" },
+        ["K"] = { "15kzz", "Jump up 15 lines" },
         -- ["<C-w>"] = { ":bd<CR>", "Close tab" },
     },
     v = {

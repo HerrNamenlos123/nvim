@@ -2,9 +2,21 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
+local cmp = require "cmp"
+
+cmp.setup {
+    enabled = false,
+    completion = {
+        autocomplete = false, -- Disable automatic popup
+    },
+    mapping = {
+        -- Your current key mappings...
+    },
+    -- Other options...
+}
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver" }
+local servers = { "html", "cssls" }
 
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
@@ -13,17 +25,17 @@ for _, lsp in ipairs(servers) do
     }
 end
 
-lspconfig.volar.setup {
-    filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
-    log_level = vim.lsp.protocol.MessageType.Error,
-    -- init_options = {
-    --     typescript = {
-    --         tsdk = "/path/to/.npm/lib/node_modules/typescript/lib",
-    --         -- Alternative location if installed as root:
-    --         -- tsdk = '/usr/local/lib/node_modules/typescript/lib'
-    --     },
-    -- },
-}
+-- lspconfig.volar.setup {
+--     filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+--     log_level = vim.lsp.protocol.MessageType.Error,
+--     -- init_options = {
+--     --     typescript = {
+--     --         tsdk = "/path/to/.npm/lib/node_modules/typescript/lib",
+--     --         -- Alternative location if installed as root:
+--     --         -- tsdk = '/usr/local/lib/node_modules/typescript/lib'
+--     --     },
+--     -- },
+-- }
 
 lspconfig.clangd.setup {
     on_attach = on_attach,
