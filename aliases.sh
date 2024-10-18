@@ -15,7 +15,7 @@ alias bashrc="v ~/.bashrc"
 # Git
 alias gs="git status"
 alias ga="git add ."
-alias gc="git commit -m"
+alias gc="git commit -a -m"
 alias gps="git push"
 alias gpl="git pull"
 alias gd="git diff"
