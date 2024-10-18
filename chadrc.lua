@@ -5,12 +5,12 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-    theme = "catppuccin",
-    theme_toggle = { "catppuccin", "one_light" },
+  theme = "ayu_dark",
+  theme_toggle = { "ayu_dark", "one_light" },
 
-    hl_override = highlights.override,
-    hl_add = highlights.add,
-    transparency = true,
+  hl_override = highlights.override,
+  hl_add = highlights.add,
+  transparency = true,
 }
 
 M.plugins = "custom.plugins"
@@ -25,11 +25,12 @@ vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.api.nvim_set_option_value("colorcolumn", "90", {})
 vim.api.nvim_exec(
-    [[
+  [[
   highlight ColorColumn guibg=#555555
 ]],
-    false
+  false
 )
+
 -- vim.api.nvim_set_keymap(
 --     "i",
 --     "<CR>",

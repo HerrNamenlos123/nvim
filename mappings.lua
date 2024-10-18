@@ -24,6 +24,7 @@ M.custom = {
     ["K"] = { "15kzz", "Jump up 15 lines" },
     ["<leader>e"] = { ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>' },
     ["<C-f>"] = { "?" },
+    ["<leader>ih"] = { ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>" },
     -- ["<C-w>"] = { ":bd<CR>", "Close tab" },
   },
   v = {
