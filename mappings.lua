@@ -23,6 +23,7 @@ M.custom = {
     ["J"] = { "15jzz", "Jump down 15 lines" },
     ["K"] = { "15kzz", "Jump up 15 lines" },
     ["<leader>e"] = { ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>' },
+    ["<C-f>"] = { "?" },
     -- ["<C-w>"] = { ":bd<CR>", "Close tab" },
   },
   v = {

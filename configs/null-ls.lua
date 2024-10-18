@@ -33,6 +33,7 @@ null_ls.setup {
         buffer = bufnr,
         callback = function()
           vim.lsp.buf.format { bufnr = bufnr }
+          vim.cmd "EslintFixAll"
         end,
       })
     end

@@ -19,9 +19,14 @@ lspconfig.ts_ls.setup {
 }
 
 lspconfig.volar.setup {}
+lspconfig.eslint.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+}
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "eslint" }
+local servers = { "html", "cssls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
