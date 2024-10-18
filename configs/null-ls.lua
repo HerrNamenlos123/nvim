@@ -33,7 +33,9 @@ null_ls.setup {
         buffer = bufnr,
         callback = function()
           vim.lsp.buf.format { bufnr = bufnr }
-          vim.cmd "EslintFixAll"
+          if vim.bo.filetype == "javascript" or vim.bo.filetype == "typescript" or vim.bo.filetype == "vue" then
+            vim.cmd "EslintFixAll"
+          end
         end,
       })
     end
