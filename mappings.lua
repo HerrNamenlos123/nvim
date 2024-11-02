@@ -22,9 +22,9 @@ M.custom = {
     ["L"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show LSP Hover" },
     ["J"] = { "15jzz", "Jump down 15 lines" },
     ["K"] = { "15kzz", "Jump up 15 lines" },
-    ["<leader>e"] = { ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>' },
-    ["<C-f>"] = { "?" },
-    ["<leader>ih"] = { ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>" },
+    ["<leader>e"] = { ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', "Show LSP Errors" },
+    ["<C-f>"] = { "?", "Search in buffer" },
+    ["<leader>ih"] = { ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>", "Toggle Inlay Hints" },
     -- ["<C-w>"] = { ":bd<CR>", "Close tab" },
   },
   v = {
@@ -39,7 +39,6 @@ M.custom = {
     ["<C-h>"] = { "<C-w>", "Delete word before cursor" },
   },
 }
-
 M.dap = {
   plugin = true,
   n = {
