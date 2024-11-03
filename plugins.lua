@@ -25,6 +25,51 @@ local plugins = {
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
+  {
+    "isakbm/gitgraph.nvim",
+    opts = {
+      symbols = {
+        merge_commit = "M",
+        commit = "*",
+      },
+      format = {
+        timestamp = "%H:%M:%S %d-%m-%Y",
+        fields = { "hash", "timestamp", "author", "branch_name", "tag" },
+      },
+      hooks = {
+        on_select_commit = function(commit)
+          local output = vim.fn.system("git checkout " .. commit.hash)
+          if vim.v.shell_error ~= 0 then
+            -- Open a new split buffer for the error output
+            vim.cmd "new"
+            local buf = vim.api.nvim_get_current_buf()
+
+            -- Set buffer content to the error output (splits output into lines)
+            vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(output, "\n"))
+
+            -- Optionally make the buffer read-only and set a name
+            vim.api.nvim_buf_set_option(buf, "buftype", "nofile")
+            vim.api.nvim_buf_set_option(buf, "modifiable", false)
+            vim.api.nvim_buf_set_name(buf, "Git Error Output")
+          else
+            print("Checked out commit " .. commit.hash)
+          end
+        end,
+        on_select_range_commit = function(from, to)
+          print("selected range:", from.hash, to.hash)
+        end,
+      },
+    },
+    keys = {
+      {
+        "<leader>gl",
+        function()
+          require("gitgraph").draw({}, { all = true, max_count = 5000 })
+        end,
+        desc = "GitGraph - Draw",
+      },
+    },
+  },
 
   -- override plugin configs
   {
