@@ -18,8 +18,11 @@ nnoremap <M-Down> :m .+1<CR>==
 inoremap <M-Down> <Esc>:m .+1<CR>==gi
 vnoremap <M-Down> :m '>+1<CR>gv=gv
 
-nnoremap J 15j
-nnoremap K 15k
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap <C-o> <C-o>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " nnoremap s <Plug>(easymotion-bd-f)
 nnoremap s <leader><leader>s
