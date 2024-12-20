@@ -8,9 +8,9 @@ alias explorer="explorer.exe ."
 
 # Utility
 alias sp="spotify_player"
-alias aliases="v ~/.config/nvim/lua/custom/aliases.sh"
-alias nvconfig="bash -i -c \"cd ~/.config/nvim/lua/custom && nvim\""
-alias profile="bash -i -c \"cd ~/Projects/profile/fedora && nvim\""
+alias aliases="bash -i -c \"cd ~/.config/nvim/lua/custom && nvim ~/.config/nvim/lua/custom/aliases.sh\""
+alias nvconfig="bash -i -c \"cd ~/.config/nvim/lua/custom && nvim ~/.config/nvim/lua/custom/chadrc.lua\""
+alias profile="bash -i -c \"cd ~/Projects/profile/fedora && nvim ~/Projects/profile/fedora/init.py\""
 alias bashrc="v ~/.bashrc"
 
 # Git

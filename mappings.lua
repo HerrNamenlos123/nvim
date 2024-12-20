@@ -3,6 +3,7 @@ local M = {}
 
 M.custom = {
   n = {
+    -- <cmd> instead of : to not show the command in the command bar
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<C-j>"] = { "]mzz", "Jump to next scope" },
     ["<C-k>"] = { "[mzz", "Jump to previous scope" },
@@ -11,20 +12,23 @@ M.custom = {
     ["<S-G>"] = { "<S-G>zz", "Move to end of file and keep cursor centered" },
     ["<leader>j"] = { "]]zz", "Jump to next function" },
     ["<leader>k"] = { "[[zz", "Jump to previous function" },
-    ["<A-j>"] = { ":m +1<CR>", "Move lines down by one" },
-    ["<A-k>"] = { ":m -2<CR>", "Move lines up by one" },
+    ["<A-j>"] = { "<cmd>m +1<CR>", "Move lines down by one" },
+    ["<A-k>"] = { "<cmd>m -2<CR>", "Move lines up by one" },
     ["<leader>aa"] = { "gg0v<S-G>$", "Select entire file" },
-    ["<leader>lf"] = { ":%s/\\r//g<CR>", "Change CRLF to LF for the entire file" },
-    ["<C-p>"] = { "<cmd> Telescope find_files <CR>", "Open file" },
+    ["<leader>lf"] = { "<cmd>%s/\\r//g<CR>", "Change CRLF to LF for the entire file" },
+    ["<C-p>"] = { '<cmd>lua require"telescope.builtin".find_files({ hidden = true })<CR>', "Open file" },
     ["<C-c>"] = { '"+y', "Copy to clipboard" },
     ["<C-v>"] = { '"+p', "Paste from clipboard" },
-    ["<leader>rr"] = { ":source $MYVIMRC<CR>", "Paste from clipboard" },
+    ["<leader>rr"] = { "<cmd>source $MYVIMRC<CR>", "Paste from clipboard" },
     ["L"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show LSP Hover" },
     -- ["J"] = { "15jzz", "Jump down 15 lines" },
     -- ["K"] = { "15kzz", "Jump up 15 lines" },
-    ["<leader>e"] = { ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', "Show LSP Errors" },
+    ["<leader>e"] = { '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>', "Show LSP Errors" },
     ["<C-f>"] = { "?", "Search in buffer" },
-    ["<leader>ih"] = { ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>", "Toggle Inlay Hints" },
+    ["<leader>ih"] = {
+      "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>",
+      "Toggle Inlay Hints",
+    },
     -- ["<C-w>"] = { ":bd<CR>", "Close tab" },
     ["<C-d>"] = { "<C-d>zz", "Move half page down" },
     ["<C-u>"] = { "<C-u>zz", "Move half page up" },
@@ -42,6 +46,7 @@ M.custom = {
   },
   i = {
     ["<C-h>"] = { "<C-w>", "Delete word before cursor" },
+    ["<C-BS>"] = { "<C-w>", "Delete word before cursor" },
   },
 }
 M.dap = {

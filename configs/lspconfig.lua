@@ -11,6 +11,7 @@ lspconfig.ts_ls.setup {
       {
         name = "@vue/typescript-plugin",
         location = "/usr/local/lib/node_modules/@vue/language-server",
+        -- location = "",
         languages = { "vue" },
       },
     },
@@ -49,6 +50,9 @@ lspconfig.volar.setup {
   --   "nuxt.config.js",
   --   "nuxt.config.ts"
   -- ),
+  -- flags = {
+  --   debounce_text_changes = 5000, -- Adjust debounce (milliseconds)
+  -- },
   init_options = {
     vue = {
       hybridMode = false,
@@ -58,6 +62,12 @@ lspconfig.volar.setup {
     -- typescript = {
     --   tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
     -- },
+    tracing = true,
+  },
+  handlers = {
+    ["$/logTrace"] = function(err, result)
+      print(result.message)
+    end,
   },
   settings = {
     typescript = {

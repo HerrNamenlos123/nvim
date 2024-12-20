@@ -65,6 +65,7 @@ M.nvimtree = {
 M.telescope = {
   defaults = {
     file_ignore_patterns = {
+      ".git/",
       "%.exe",
       "%.png",
       "%.ico",
