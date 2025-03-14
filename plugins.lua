@@ -151,6 +151,9 @@ local plugins = {
           { name = "nvim_lua" },
           { name = "path" },
         },
+        completion = {
+          autocomplete = { require("cmp.types").cmp.TriggerEvent.TextChanged },
+        },
       }
     end,
   },
