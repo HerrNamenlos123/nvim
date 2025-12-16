@@ -1,3 +1,5 @@
+echom "Loading vimrc"
+
 inoremap jk <Esc>
 nnoremap j jzz
 nnoremap k kzz
