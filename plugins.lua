@@ -6,6 +6,17 @@ local plugins = {
   -- Override plugin definition options
 
   {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+    ft = { "html", "xml", "vue", "javascriptreact", "typescriptreact" },
+  },
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       -- format & linting
@@ -20,6 +31,51 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
+  },
+  {
+    "isakbm/gitgraph.nvim",
+    opts = {
+      symbols = {
+        merge_commit = "M",
+        commit = "*",
+      },
+      format = {
+        timestamp = "%H:%M:%S %d-%m-%Y",
+        fields = { "hash", "timestamp", "author", "branch_name", "tag" },
+      },
+      hooks = {
+        on_select_commit = function(commit)
+          local output = vim.fn.system("git checkout " .. commit.hash)
+          if vim.v.shell_error ~= 0 then
+            -- Open a new split buffer for the error output
+            vim.cmd "new"
+            local buf = vim.api.nvim_get_current_buf()
+
+            -- Set buffer content to the error output (splits output into lines)
+            vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(output, "\n"))
+
+            -- Optionally make the buffer read-only and set a name
+            vim.api.nvim_buf_set_option(buf, "buftype", "nofile")
+            vim.api.nvim_buf_set_option(buf, "modifiable", false)
+            vim.api.nvim_buf_set_name(buf, "Git Error Output")
+          else
+            print("Checked out commit " .. commit.hash)
+          end
+        end,
+        on_select_range_commit = function(from, to)
+          print("selected range:", from.hash, to.hash)
+        end,
+      },
+    },
+    keys = {
+      {
+        "<leader>gl",
+        function()
+          require("gitgraph").draw({}, { all = true, max_count = 5000 })
+        end,
+        desc = "GitGraph - Draw",
+      },
+    },
   },
 
   -- override plugin configs
@@ -36,6 +92,7 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
+    ensure_installed = { "vue" },
   },
   {
     "nvim-tree/nvim-tree.lua",
@@ -51,7 +108,22 @@ local plugins = {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
     config = function()
-      require("better_escape").setup()
+      require("better_escape").setup {
+        timeout = vim.o.timeoutlen,
+        default_mappings = true,
+        mappings = {
+          t = {
+            j = {
+              k = false,
+            },
+          },
+          v = {
+            j = {
+              k = false,
+            },
+          },
+        },
+      }
     end,
   },
   {
@@ -66,7 +138,7 @@ local plugins = {
     event = "InsertEnter",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
+      -- "hrsh7th/nvim-cmp",
     },
     config = function()
       require("codeium").setup {}
@@ -78,6 +150,9 @@ local plugins = {
           { name = "buffer" },
           { name = "nvim_lua" },
           { name = "path" },
+        },
+        completion = {
+          autocomplete = { require("cmp.types").cmp.TriggerEvent.TextChanged },
         },
       }
     end,
@@ -173,8 +248,8 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     config = function()
-      require("core.utils").load_mappings("dap")
-    end
+      require("core.utils").load_mappings "dap"
+    end,
   },
   -- To make a plugin not be loaded
   -- {

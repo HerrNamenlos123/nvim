@@ -1,5 +1,3 @@
-echom "Loading vimrc"
-
 inoremap jk <Esc>
 nnoremap j jzz
 nnoremap k kzz
@@ -30,3 +28,5 @@ nnoremap N Nzzzv
 nnoremap s <leader><leader>s
 
 set clipboard=unnamedplus
+nnoremap gcc :action CommentByLineComment<CR>
+xnoremap gc :action CommentByLineComment<CR>

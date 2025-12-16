@@ -8,18 +8,23 @@ alias explorer="explorer.exe ."
 
 # Utility
 alias sp="spotify_player"
-alias aliases="v ~/.config/nvim/lua/custom/aliases.sh"
-alias nvconfig="bash -i -c \"cd ~/.config/nvim/lua/custom && nvim\""
+alias aliases="bash -i -c \"cd ~/.config/nvim/lua/custom && nvim ~/.config/nvim/lua/custom/aliases.sh\""
+alias nvconfig="bash -i -c \"cd ~/.config/nvim/lua/custom && nvim ~/.config/nvim/lua/custom/chadrc.lua\""
+alias profile="bash -i -c \"cd ~/Projects/profile/fedora && nvim ~/Projects/profile/fedora/init.py\""
 alias bashrc="v ~/.bashrc"
 
 # Git
 alias gs="git status"
 alias ga="git add ."
-alias gc="git commit -m"
+alias gc="git commit -a -m"
 alias gps="git push"
 alias gpl="git pull"
 alias gd="git diff"
 alias gr="git reset"
+alias gst="git stash"
+alias gsa="git stash apply"
+alias gb="git checkout HEAD~1"
+alias gf="git switch main"
 
 # System folders navigation
 alias home="cd ~"
@@ -35,3 +40,5 @@ se() {
 }
 
 alias r="./run"
+alias dev="./dev"
+alias open="xdg-open"
