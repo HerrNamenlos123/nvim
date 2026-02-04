@@ -28,6 +28,9 @@ if !hModule
     ExitApp
 }
 
+LastFocused := {}   ; desktopIndex -> hwnd
+SetWinEventHook()
+
 ; Disable CapsLock toggle
 SetCapsLockState, AlwaysOff
 CapsLock::
@@ -91,10 +94,28 @@ return
 ; ===============================================
 GoToDesktop(n)
 {
-    global DLLPath
-    ; Call the DLL function GoToDesktopNumber (1-indexed)
+    global DLLPath, LastFocused
+
     DllCall(DLLPath "\GoToDesktopNumber", "UInt", n)
+
+    ; Wait until the desktop switch actually completes
+    Loop 30
+    {
+        current := DllCall(DLLPath "\GetCurrentDesktopNumber", "UInt")
+        if (current = n)
+            break
+        Sleep, 10
+    }
+
+    ; Restore last focused window if still valid
+    if (LastFocused.HasKey(n))
+    {
+        hwnd := LastFocused[n]
+        if WinExist("ahk_id " hwnd)
+            WinActivate, ahk_id %hwnd%
+    }
 }
+
 
 MoveWindowToDesktop(n)
 {
@@ -104,6 +125,7 @@ MoveWindowToDesktop(n)
         return
     ; Call the DLL function MoveWindowToDesktopNumber
     DllCall(DLLPath "\MoveWindowToDesktopNumber", "Ptr", hwnd, "UInt", n)
+    LastFocused[n] := hwnd
 }
 
 EnsureDesktopExists(n)
@@ -116,4 +138,27 @@ EnsureDesktopExists(n)
     {
         DllCall(DLLPath . "\CreateDesktop")
     }
+}
+
+SetWinEventHook()
+{
+    static hook := DllCall("SetWinEventHook"
+        , "UInt", 0x0003
+        , "UInt", 0x0003
+        , "Ptr", 0
+        , "Ptr", RegisterCallback("OnForegroundChanged")
+        , "UInt", 0
+        , "UInt", 0
+        , "UInt", 0x0000)
+}
+
+OnForegroundChanged(hWinEventHook, event, hwnd)
+{
+    global DLLPath, LastFocused
+
+    if (!hwnd)
+        return
+
+    desk := DllCall(DLLPath "\GetCurrentDesktopNumber", "UInt")
+    LastFocused[desk] := hwnd
 }
