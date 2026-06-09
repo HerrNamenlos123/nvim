@@ -1,8 +1,8 @@
 echom "Loading vimrc"
 
 inoremap jk <Esc>
-nnoremap j jzz
-nnoremap k kzz
+nnoremap j gjzz
+nnoremap k gkzz
 
 " Select entire file
 nnoremap <space>aa ggVG
