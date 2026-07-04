@@ -42,26 +42,18 @@ rm -rf JetBrainsMono.zip fonts/
 
 And set the font to `JetBrainsMono Nerd Font` in Terminal Preferences!
 
-### Install NvChad
+### Install this config
 
-Windows:   
-```
-git clone https://github.com/NvChad/NvChad %localappdata%/nvim --depth 1 --branch v2.0
-```
-Linux:   
-```
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 --branch v2.0
-```
+This repo is a self-contained NvChad (v2.5) starter config -- `NvChad/NvChad` is
+pulled in automatically by lazy.nvim as a plugin dependency, no separate clone needed.
 
-### Install my config
-
-Windows:   
+Windows:
 ```
-git clone https://github.com/HerrNamenlos123/nvim %localappdata%/nvim/lua/custom && nvim
+git clone https://github.com/HerrNamenlos123/nvim %localappdata%/nvim && nvim
 ```
-Linux:  
+Linux:
 ```
-rm -rf ~/.config/nvim/lua/custom && git clone https://github.com/HerrNamenlos123/nvim ~/.config/nvim/lua/custom && nvim
+git clone https://github.com/HerrNamenlos123/nvim ~/.config/nvim && nvim
 ```
 
 ### Install Starship
@@ -79,7 +71,7 @@ C:\Program Files (x86)\clink
 ```
 ```
 clink autorun install -- --quiet
-echo dofile(os.getenv("LOCALAPPDATA") .. "/nvim/lua/custom/clink.lua") > "%localappdata%\clink\clink-config.lua"
+echo dofile(os.getenv("LOCALAPPDATA") .. "/nvim/lua/extras/clink.lua") > "%localappdata%\clink\clink-config.lua"
 ```
 
 Linux:
@@ -90,10 +82,10 @@ curl -sS https://starship.rs/install.sh | sudo sh
 echo 'eval "$(starship init bash)"' >> ~/.bashrc
 ```
 ```
-cp ~/.config/nvim/lua/custom/starship.toml ~/.config/starship.toml
+cp ~/.config/nvim/lua/extras/starship.toml ~/.config/starship.toml
 ```
 ```
-echo 'source ~/.config/nvim/lua/custom/aliases.sh' >> ~/.bashrc
+echo 'source ~/.config/nvim/lua/extras/aliases.sh' >> ~/.bashrc
 ```
 
 And change the starship logo:
