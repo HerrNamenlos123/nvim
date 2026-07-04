@@ -9,6 +9,7 @@ M.treesitter = {
     "javascript",
     "typescript",
     "tsx",
+    "vue",
     "c",
     "markdown",
     "markdown_inline",
@@ -31,12 +32,14 @@ M.mason = {
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
+    "vue-language-server",
     "deno",
     "prettier",
 
     -- c/cpp stuff
     "clangd",
     "clang-format",
+    "codelldb",
   },
 }
 

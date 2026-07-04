@@ -1,9 +1,20 @@
-local overrides = require "custom.configs.overrides"
+local overrides = require "configs.overrides"
 
----@type NvPluginSpec[]
+---@type LazySpec
 local plugins = {
 
-  -- Override plugin definition options
+  {
+    "stevearc/conform.nvim",
+    event = "BufWritePre",
+    opts = require "configs.conform",
+  },
+
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "configs.lspconfig"
+    end,
+  },
 
   {
     "windwp/nvim-ts-autotag",
@@ -15,22 +26,6 @@ local plugins = {
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      -- format & linting
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "custom.configs.null-ls"
-        end,
-      },
-    },
-    config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
-    end, -- Override to setup mason-lspconfig
   },
   {
     "isakbm/gitgraph.nvim",
@@ -47,16 +42,11 @@ local plugins = {
         on_select_commit = function(commit)
           local output = vim.fn.system("git checkout " .. commit.hash)
           if vim.v.shell_error ~= 0 then
-            -- Open a new split buffer for the error output
             vim.cmd "new"
             local buf = vim.api.nvim_get_current_buf()
-
-            -- Set buffer content to the error output (splits output into lines)
             vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(output, "\n"))
-
-            -- Optionally make the buffer read-only and set a name
-            vim.api.nvim_buf_set_option(buf, "buftype", "nofile")
-            vim.api.nvim_buf_set_option(buf, "modifiable", false)
+            vim.bo[buf].buftype = "nofile"
+            vim.bo[buf].modifiable = false
             vim.api.nvim_buf_set_name(buf, "Git Error Output")
           else
             print("Checked out commit " .. commit.hash)
@@ -80,19 +70,33 @@ local plugins = {
 
   -- override plugin configs
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = overrides.mason,
-    ensure_installed = {
-      "clangd",
-      "clang-format",
-      "codelldb",
-    },
+    -- mason.nvim has no native "ensure_installed" auto-installer (that was an
+    -- NvChad v2.0 bootstrap-wrapper feature, not a mason.nvim one) -- install
+    -- missing packages ourselves so a fresh machine works out of the box.
+    config = function(_, opts)
+      require("mason").setup(opts)
+      local registry = require "mason-registry"
+      local function install_missing()
+        for _, name in ipairs(opts.ensure_installed or {}) do
+          local ok, pkg = pcall(registry.get_package, name)
+          if ok and not pkg:is_installed() then
+            pkg:install()
+          end
+        end
+      end
+      if registry.refresh then
+        registry.refresh(install_missing)
+      else
+        install_missing()
+      end
+    end,
   },
 
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
-    ensure_installed = { "vue" },
   },
   {
     "nvim-tree/nvim-tree.lua",
@@ -103,7 +107,6 @@ local plugins = {
     opts = overrides.telescope,
   },
 
-  -- Install a plugin
   {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
@@ -112,16 +115,8 @@ local plugins = {
         timeout = vim.o.timeoutlen,
         default_mappings = true,
         mappings = {
-          t = {
-            j = {
-              k = false,
-            },
-          },
-          v = {
-            j = {
-              k = false,
-            },
-          },
+          t = { j = { k = false } },
+          v = { j = { k = false } },
         },
       }
     end,
@@ -131,30 +126,6 @@ local plugins = {
     cmd = "Speedtyper",
     config = function()
       require("speedtyper").setup {}
-    end,
-  },
-  {
-    "Exafunction/codeium.nvim",
-    event = "InsertEnter",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      -- "hrsh7th/nvim-cmp",
-    },
-    config = function()
-      require("codeium").setup {}
-      require("cmp").setup {
-        sources = {
-          { name = "codeium" },
-          { name = "nvim_lsp" },
-          { name = "luasnip" },
-          { name = "buffer" },
-          { name = "nvim_lua" },
-          { name = "path" },
-        },
-        completion = {
-          autocomplete = { require("cmp.types").cmp.TriggerEvent.TextChanged },
-        },
-      }
     end,
   },
   {
@@ -206,36 +177,13 @@ local plugins = {
       dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
       end
-
-      -- dap.adapters.lldb = {
-      --     type = "executable",
-      --     command = "C:\\Program Files\\LLVM\\bin\\lldb.exe", -- adjust as needed, must be absolute path
-      --     name = "lldb",
-      -- }
-      --
-      -- local lldb = {
-      --     name = "Launch lldb",
-      --     type = "lldb", -- matches the adapter
-      --     request = "launch", -- could also attach to a currently running process
-      --     program = function()
-      --         return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-      --     end,
-      --     cwd = "${workspaceFolder}",
-      --     stopOnEntry = false,
-      --     args = {},
-      --     runInTerminal = false,
-      -- }
-      --
-      -- require("dap").configurations.cpp = {
-      --     lldb, -- different debuggers or more configurations can be used here
-      -- }
     end,
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
     lazy = false,
     dependencies = {
-      "williamboman/mason.nvim",
+      "mason-org/mason.nvim",
       "mfussenegger/nvim-dap",
     },
     opts = {
@@ -245,25 +193,7 @@ local plugins = {
       },
     },
   },
-  {
-    "mfussenegger/nvim-dap",
-    config = function()
-      require("core.utils").load_mappings "dap"
-    end,
-  },
-  -- To make a plugin not be loaded
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   enabled = false
-  -- },
-
-  -- All NvChad plugins are lazy-loaded by default
-  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
-  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
-  -- {
-  --   "mg979/vim-visual-multi",
-  --   lazy = false,
-  -- }
+  { "mfussenegger/nvim-dap" },
 }
 
 return plugins
